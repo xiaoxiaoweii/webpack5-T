@@ -23,6 +23,18 @@ module.exports = {
   module: {
     rules: [
       // 详细loader配置
+      // 不同文件配置不同loader进行处理
+      {
+        // 匹配哪些文件 后缀名以.css结尾会进行处理
+        test: /\.css$/,
+        use: [
+          // use数组中loader执行顺序 从右到左 从下到上依次执行
+          // 创建style标签将js中的css样式资源插入进去 添加到header中生效
+          "style-loader",
+          // 将css文件以字符串的形式变成commonjs的模块加载到js中 里面的内容是样式字符串
+          "css-loader",
+        ],
+      },
     ],
   },
   // plugins的配置
