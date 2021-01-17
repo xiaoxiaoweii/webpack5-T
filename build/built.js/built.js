@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!./node_modules/_less-loader@8.0.0@less-loader/dist/cjs.js!./src/index.less":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!./node_modules/_less-loader@8.0.0@less-loader/dist/cjs.js!./src/index.less ***!
+  \******************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_5_0_2_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/_css-loader@5.0.2@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@5.0.2@css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_5_0_2_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_5_0_2_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_5_0_2_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"html,\\nbody {\\n  background-color: #e61919;\\n  margin: 0;\\n  padding: 0;\\n  height: 100%;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://webpack5-t/./src/index.less?./node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!./node_modules/_less-loader@8.0.0@less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!./src/index.css":
 /*!*******************************************************************************!*\
   !*** ./node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!./src/index.css ***!
@@ -27,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module) => {
 
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (cssWithMappingToString) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item);\n\n      if (item[2]) {\n        return \"@media \".concat(item[2], \" {\").concat(content, \"}\");\n      }\n\n      return content;\n    }).join(\"\");\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery, dedupe) {\n    if (typeof modules === \"string\") {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, \"\"]];\n    }\n\n    var alreadyImportedModules = {};\n\n    if (dedupe) {\n      for (var i = 0; i < this.length; i++) {\n        // eslint-disable-next-line prefer-destructuring\n        var id = this[i][0];\n\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = [].concat(modules[_i]);\n\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        // eslint-disable-next-line no-continue\n        continue;\n      }\n\n      if (mediaQuery) {\n        if (!item[2]) {\n          item[2] = mediaQuery;\n        } else {\n          item[2] = \"\".concat(mediaQuery, \" and \").concat(item[2]);\n        }\n      }\n\n      list.push(item);\n    }\n  };\n\n  return list;\n};\n\n//# sourceURL=webpack://webpack5-t/./node_modules/_css-loader@5.0.2@css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./src/index.less":
+/*!************************!*\
+  !*** ./src/index.less ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/_style-loader@2.0.0@style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/_style-loader@2.0.0@style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_5_0_2_css_loader_dist_cjs_js_node_modules_less_loader_8_0_0_less_loader_dist_cjs_js_index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!../node_modules/_less-loader@8.0.0@less-loader/dist/cjs.js!./index.less */ \"./node_modules/_css-loader@5.0.2@css-loader/dist/cjs.js!./node_modules/_less-loader@8.0.0@less-loader/dist/cjs.js!./src/index.less\");\n\n            \n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_5_0_2_css_loader_dist_cjs_js_node_modules_less_loader_8_0_0_less_loader_dist_cjs_js_index_less__WEBPACK_IMPORTED_MODULE_1__.default, options);\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_5_0_2_css_loader_dist_cjs_js_node_modules_less_loader_8_0_0_less_loader_dist_cjs_js_index_less__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});\n\n//# sourceURL=webpack://webpack5-t/./src/index.less?");
 
 /***/ }),
 
@@ -56,7 +76,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* \r\n  index.js : webpack 入口起点文件\r\n\r\n  1. 运行指令 ：\r\n  开发指令 webpack ./src/index.js -o ./build/built.js --mode=development\r\n  webpack 会以 ./src/index.js 为入口文件打包 打包后输出到 ./build/built.js\r\n  整体打包环境是开发环境\r\n  生产指令 webpack ./src/index.js -o ./build/built.js --mode=production\r\n  webpack 会以 ./src/index.js 为入口文件打包 打包后输出到 ./build/built.js\r\n  整体打包环境是生产环境\r\n\r\n  2. 结论 \r\n  1.webpack能处理js/json资源 不能处理css/img等其他资源\r\n  2.生产环境和开发环境将ES6模块化编译成浏览器识别的模块化\r\n  3.生产环境必开发环境多一个压缩js代码\r\n*/\r\n\n\n//# sourceURL=webpack://webpack5-t/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ \"./src/index.less\");\n/* \r\n  index.js : webpack 入口起点文件\r\n\r\n  1. 运行指令 ：\r\n  开发指令 webpack ./src/index.js -o ./build/built.js --mode=development\r\n  webpack 会以 ./src/index.js 为入口文件打包 打包后输出到 ./build/built.js\r\n  整体打包环境是开发环境\r\n  生产指令 webpack ./src/index.js -o ./build/built.js --mode=production\r\n  webpack 会以 ./src/index.js 为入口文件打包 打包后输出到 ./build/built.js\r\n  整体打包环境是生产环境\r\n\r\n  2. 结论 \r\n  1.webpack能处理js/json资源 不能处理css/img等其他资源\r\n  2.生产环境和开发环境将ES6模块化编译成浏览器识别的模块化\r\n  3.生产环境必开发环境多一个压缩js代码\r\n*/\r\n\r\n\r\n\n\n//# sourceURL=webpack://webpack5-t/./src/index.js?");
 
 /***/ })
 

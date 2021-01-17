@@ -15,3 +15,4 @@
   3.生产环境必开发环境多一个压缩js代码
 */
 import './index.css'
+import './index.less'

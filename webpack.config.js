@@ -35,6 +35,17 @@ module.exports = {
           "css-loader",
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          // 同前
+          "style-loader",
+          // 同前
+          "css-loader",
+          // 将less文件编译为css文件
+          "less-loader",
+        ],
+      },
     ],
   },
   // plugins的配置
