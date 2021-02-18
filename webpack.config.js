@@ -14,7 +14,7 @@
 // resolve 用来拼接绝对路径的方法
 const { resolve } = require("path");
 // html-webpack-plugin 引入
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // webpack配置
@@ -55,6 +55,31 @@ module.exports = {
           "less-loader",
         ],
       },
+      {
+        // 处理图片资源
+        // 问题 处理不了img图片
+        test: /\.(jpg|png|gif)$/,
+        // 下载url-loader file-loader
+        loader: "url-loader",
+        options: {
+          //  图片大小小于10kb 就会被base64处理
+          // 优点 减少请求数量 减轻服务器压力
+          // 缺点 图片体积会更大 文件请求速度更慢
+          limit: 10 * 1024,
+          // 因为url-loader默认使用es6模块化解析 儿html-loader引入图片是commonjs
+          // 解析时会报错: [object Module]
+          // 解决 关闭url-loader中的es6模块化 使用commonjs解析
+          esModule: false,
+          // [hash:10] 取图片的hash前十位
+          // [ext] 取文件原来的扩展名
+          name: '[hash:10].[ext]'
+        },
+      },
+      {
+        test: /\.html$/,
+        // 处理html文件中的img图片 负责引入img 从而被url-loader进行处理
+        loader: "html-loader",
+      },
     ],
   },
   // plugins的配置
@@ -64,8 +89,8 @@ module.exports = {
     // 默认创建空的html文件 引入打包输出的所有资源(JS/CSS)
     // 需求: 需要有结构的HTML文件 添加选项 复制html文件并引入打包输出的所有资源
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
+      template: "./src/index.html",
+    }),
   ],
   // 模式 开发环境 development/生产环境 production
   mode: "development",
