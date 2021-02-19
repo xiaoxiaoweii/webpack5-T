@@ -17,7 +17,8 @@
 // 引入样式
 import "./index.css";
 import "./index.less";
-
+// 引入iconfont 样式文件
+import './iconfont.css'
 function add(x, y) {
   return x + y;
 }

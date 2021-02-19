@@ -80,6 +80,15 @@ module.exports = {
         // 处理html文件中的img图片 负责引入img 从而被url-loader进行处理
         loader: "html-loader",
       },
+      // 打包其他资源 (除css js html以外的资源)
+      {
+        // 排除css js html
+        exclude: /\.(css|js|html|less|jpg|png|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[hash:10].[ext]'
+        },
+      }
     ],
   },
   // plugins的配置
