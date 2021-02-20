@@ -19,11 +19,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   // webpack配置
   // 入口起点
-  entry: "./src/index.js",
+  entry: "./src/js/index.js",
   // 输出
   output: {
     // 输出文件名
-    filename: "built.js",
+    filename: "js/built.js",
     // 输出路径
     // __dirname nodejs的变量 代表当前文件的目录绝对路径
     path: resolve(__dirname, "build"),
@@ -65,14 +65,15 @@ module.exports = {
           //  图片大小小于10kb 就会被base64处理
           // 优点 减少请求数量 减轻服务器压力
           // 缺点 图片体积会更大 文件请求速度更慢
-          limit: 10 * 1024,
+          limit: 8 * 1024,
           // 因为url-loader默认使用es6模块化解析 儿html-loader引入图片是commonjs
           // 解析时会报错: [object Module]
           // 解决 关闭url-loader中的es6模块化 使用commonjs解析
           esModule: false,
           // [hash:10] 取图片的hash前十位
           // [ext] 取文件原来的扩展名
-          name: '[hash:10].[ext]'
+          name: '[hash:10].[ext]',
+          outputPath: 'imgs'
         },
       },
       {
@@ -86,7 +87,8 @@ module.exports = {
         exclude: /\.(css|js|html|less|jpg|png|gif)$/,
         loader: 'file-loader',
         options: {
-          name: '[hash:10].[ext]'
+          name: '[hash:10].[ext]',
+          outputPath: 'media'
         },
       }
     ],

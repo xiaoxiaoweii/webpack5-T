@@ -15,10 +15,10 @@
   3.生产环境必开发环境多一个压缩js代码
 */
 // 引入样式
-import "./index.css";
-import "./index.less";
+import "../css/index.css";
+import "../css/index.less";
 // 引入iconfont 样式文件
-import './iconfont.css'
+import '../css/iconfont.css'
 function add(x, y) {
   return x + y;
 }
