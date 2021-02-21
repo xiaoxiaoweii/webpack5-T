@@ -126,7 +126,23 @@ module.exports = {
           name: '[hash:10].[ext]',
           outputPath: 'media'
         },
-      }
+      },
+      /* 
+        语法检查 eslint-loader 依赖eslint
+        注意: 只检查自己写的源代码 第三方的库不检查
+        设置检查规则:
+          package.json中eslintConfig中设置 推荐使用airbnb ---> 下载插件 eslint-config-airbnb-base eslint eslint-plugin-import
+      */
+     {
+       test: /\.js$/,
+       loader: 'eslint-loader',
+        //  检查时排查第三方的库 
+       exclude: /node_modules/,
+       options: {
+        //  自动修复
+         fix: true
+       }
+     }
     ],
   },                   
   // plugins的配置
