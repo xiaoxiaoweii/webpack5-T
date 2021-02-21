@@ -15,7 +15,10 @@
 const { resolve } = require("path");
 // html-webpack-plugin 引入
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// mini-css-extract-plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// optimize-css-assets-webpack-plugin 压缩css文件
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 // 设置 node js环境变量
 process.env.NODE_ENV = 'development'
 module.exports = {
@@ -138,6 +141,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 对输出文件进行重命名
       filename: 'css/built.css'
+    }),
+    // 压缩css文件代码
+    new OptimizeCssAssetsWebpackPlugin({
+
     })
   ],
   // 模式 开发环境 development/生产环境 production
