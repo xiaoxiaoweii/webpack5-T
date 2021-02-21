@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/xiaoxiaoweii/webpack5-T#readme",
   "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.17",
+    "babel-loader": "^8.2.2",
     "css-loader": "^5.0.2",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",

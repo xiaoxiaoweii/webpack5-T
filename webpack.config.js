@@ -142,6 +142,22 @@ module.exports = {
         //  自动修复
          fix: true
        }
+     },
+     {
+       /*   
+       js兼容性处理 babel-loader @babel/preset-env @babel/core
+       1.基本js兼容性处理 ---> @babel/preset-env
+        问题: 只能转换基本语法
+       2.全部js兼容性处理 ---> @babel/polyfill
+       */
+      test: /\.js$/,
+      //  检查时排查第三方的库 
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      options: {
+        // 预设 指示babel做怎么样的兼容性处理
+        presets: ['@babel/preset-env']
+      }
      }
     ],
   },                   
