@@ -15,7 +15,7 @@
 const { resolve } = require("path");
 // html-webpack-plugin 引入
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   // webpack配置
   // 入口起点
@@ -39,10 +39,12 @@ module.exports = {
         use: [
           // use数组中loader执行顺序 从右到左 从下到上依次执行
           // 创建style标签将js中的css样式资源插入进去 添加到header中生效
-          "style-loader",
+          // "style-loader",
+          // 取代style-loader 提取css成单独文件
+          MiniCssExtractPlugin.loader,
           // 将css文件以字符串的形式变成commonjs的模块加载到js中 里面的内容是样式字符串
           "css-loader",
-        ],
+        ], 
       },
       {
         test: /\.less$/,
@@ -62,7 +64,7 @@ module.exports = {
         // 下载url-loader file-loader
         loader: "url-loader",
         options: {
-          //  图片大小小于10kb 就会被base64处理
+          //  图片大小小于8kb 就会被base64处理
           // 优点 减少请求数量 减轻服务器压力
           // 缺点 图片体积会更大 文件请求速度更慢
           limit: 8 * 1024,
@@ -92,7 +94,7 @@ module.exports = {
         },
       }
     ],
-  },
+  },                   
   // plugins的配置
   plugins: [
     // 详细
@@ -102,6 +104,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new MiniCssExtractPlugin({
+      // 对输出文件进行重命名
+      filename: 'css/built.css'
+    })
   ],
   // 模式 开发环境 development/生产环境 production
   mode: "development",
