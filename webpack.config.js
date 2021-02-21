@@ -16,6 +16,8 @@ const { resolve } = require("path");
 // html-webpack-plugin 引入
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// 设置 node js环境变量
+process.env.NODE_ENV = 'development'
 module.exports = {
   // webpack配置
   // 入口起点
@@ -44,6 +46,35 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           // 将css文件以字符串的形式变成commonjs的模块加载到js中 里面的内容是样式字符串
           "css-loader",
+          // css兼容性处理 postcss postcss-loader postcss-preset-env 帮postcss找到package.json中browserslist里面的配置 通过配置加载指定的兼容性样式
+          // 使用loader的默认配置
+          
+          /* "browserslist": {
+            // 开发环境 设置node环境变量 process.env.NODE_ENV = development
+            "development": [
+              "last 1 chrome verson",
+              "last 1 firfox verson",
+              "last 1 safari verison"
+            ],
+            // 生产环境 默认是看生产环境
+            "production": [
+              ">0..2%",
+              "not dead",
+              "not op_mini all"
+            ]
+          } */
+          // 'postcss-loader'
+          // 修改loader的配置
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                // postcss的插件
+                require('postcss-preset-env')
+              ]
+            }
+          }
         ], 
       },
       {
