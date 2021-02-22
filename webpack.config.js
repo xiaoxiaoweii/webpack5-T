@@ -169,7 +169,7 @@ module.exports = {
             targets: {
               chrome: '60',
               firefox: '60',
-              ie: '9',
+              ie: '9', 
               safari: '10',
               edge: '17'
             }
@@ -186,6 +186,12 @@ module.exports = {
     // 需求: 需要有结构的HTML文件 添加选项 复制html文件并引入打包输出的所有资源
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      minify: {
+        // 移除空格
+        collapseWhitespace: true,
+        // 移除注释
+        removeComments: true
+      }
     }),
     new MiniCssExtractPlugin({
       // 对输出文件进行重命名
@@ -195,6 +201,7 @@ module.exports = {
     new OptimizeCssAssetsWebpackPlugin({}),
   ],
   // 模式 开发环境 development/生产环境 production
+  // 生产·模式 下自动压缩js代码
   mode: "development",
   // mode: 'production'
 
