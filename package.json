@@ -21,6 +21,7 @@
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.17",
     "babel-loader": "^8.2.2",
+    "core-js": "^3.9.0",
     "css-loader": "^5.0.2",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",

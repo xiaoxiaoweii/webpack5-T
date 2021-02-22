@@ -16,11 +16,11 @@ const { resolve } = require("path");
 // html-webpack-plugin 引入
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // mini-css-extract-plugin
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // optimize-css-assets-webpack-plugin 压缩css文件
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 // 设置 node js环境变量
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = "development";
 module.exports = {
   // webpack配置
   // 入口起点
@@ -51,7 +51,7 @@ module.exports = {
           "css-loader",
           // css兼容性处理 postcss postcss-loader postcss-preset-env 帮postcss找到package.json中browserslist里面的配置 通过配置加载指定的兼容性样式
           // 使用loader的默认配置
-          
+
           /* "browserslist": {
             // 开发环境 设置node环境变量 process.env.NODE_ENV = development
             "development": [
@@ -69,16 +69,16 @@ module.exports = {
           // 'postcss-loader'
           // 修改loader的配置
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
-              ident: 'postcss',
+              ident: "postcss",
               plugins: () => [
                 // postcss的插件
-                require('postcss-preset-env')
-              ]
-            }
-          }
-        ], 
+                require("postcss-preset-env"),
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.less$/,
@@ -108,8 +108,8 @@ module.exports = {
           esModule: false,
           // [hash:10] 取图片的hash前十位
           // [ext] 取文件原来的扩展名
-          name: '[hash:10].[ext]',
-          outputPath: 'imgs'
+          name: "[hash:10].[ext]",
+          outputPath: "imgs",
         },
       },
       {
@@ -121,10 +121,10 @@ module.exports = {
       {
         // 排除css js html
         exclude: /\.(css|js|html|less|jpg|png|gif)$/,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          name: '[hash:10].[ext]',
-          outputPath: 'media'
+          name: "[hash:10].[ext]",
+          outputPath: "media",
         },
       },
       /* 
@@ -133,35 +133,51 @@ module.exports = {
         设置检查规则:
           package.json中eslintConfig中设置 推荐使用airbnb ---> 下载插件 eslint-config-airbnb-base eslint eslint-plugin-import
       */
-     {
-       test: /\.js$/,
-       loader: 'eslint-loader',
-        //  检查时排查第三方的库 
-       exclude: /node_modules/,
-       options: {
-        //  自动修复
-         fix: true
-       }
-     },
-     {
-       /*   
+      {
+        test: /\.js$/,
+        loader: "eslint-loader",
+        //  检查时排查第三方的库
+        exclude: /node_modules/,
+        options: {
+          //  自动修复
+          fix: true,
+        },
+      },
+      {
+        /*   
        js兼容性处理 babel-loader @babel/preset-env @babel/core
        1.基本js兼容性处理 ---> @babel/preset-env
         问题: 只能转换基本语法
        2.全部js兼容性处理 ---> @babel/polyfill
         问题: 只要解决部分兼容性问题 但是将所有兼容性代码全部引入 体积过大了
+       3. 兼容性处理的按需加载 --> corejs
        */
-      test: /\.js$/,
-      //  检查时排查第三方的库 
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      options: {
-        // 预设 指示babel做怎么样的兼容性处理
-        presets: ['@babel/preset-env']
-      }
-     }
+        test: /\.js$/,
+        //  检查时排查第三方的库
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          // 预设 指示babel做怎么样的兼容性处理
+          presets: [["@babel/preset-env",{
+            // 按需加载
+            useBuiltIns: 'usage',
+            // 指定core-js版本
+            corejs: {
+              version: 3
+            },
+            // 指定兼容性做到哪个版本浏览器
+            targets: {
+              chrome: '60',
+              firefox: '60',
+              ie: '9',
+              safari: '10',
+              edge: '17'
+            }
+          }]],
+        },
+      },
     ],
-  },                   
+  },
   // plugins的配置
   plugins: [
     // 详细
@@ -173,27 +189,25 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       // 对输出文件进行重命名
-      filename: 'css/built.css'
+      filename: "css/built.css",
     }),
     // 压缩css文件代码
-    new OptimizeCssAssetsWebpackPlugin({
-
-    })
+    new OptimizeCssAssetsWebpackPlugin({}),
   ],
   // 模式 开发环境 development/生产环境 production
   mode: "development",
   // mode: 'production'
 
-  // 开发服务器 devServer 用来自动化(自动编译 自动打开浏览器 自动刷新浏览器) 
+  // 开发服务器 devServer 用来自动化(自动编译 自动打开浏览器 自动刷新浏览器)
   // 特点: 只会在内存中编译打包 不会有任何输出
   // 启动devServer指令为: npx webpack-dev-server
-  devServer:{
-    contentBase: resolve(__dirname,'build'),
+  devServer: {
+    contentBase: resolve(__dirname, "build"),
     // 启动gzip压缩
     compress: true,
     // 指定开发端口号
     port: 3000,
     // 自动打开浏览器
-    open: true
-  }
+    open: true,
+  },
 };

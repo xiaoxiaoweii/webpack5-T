@@ -15,12 +15,14 @@
   3.生产环境必开发环境多一个压缩js代码
 */
 // 引入样式
-import '@babel/polyfill';
+// import '@babel/polyfill';
 import '../css/index.css';
 import '../css/index.less'; // 引入iconfont 样式文件
 // import '../css/iconfont.css'
 
-const add = (x, y) => x + y; // 下一行eslint所有规则失效
+const add = function add(x, y) {
+  return x + y;
+}; // 下一行eslint所有规则失效
 // eslint-disable-nex t-line
 
 console.log(add(1, 2));
