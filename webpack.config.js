@@ -5,10 +5,33 @@
 */
 
 /* 
+性能优化 
+开发环境性能优化: 
+1.优化webpack打包构建速度
+2.优化代码调试
+生产环境性能优化
+1.优化打包构建速度
+2.优化代码运行的性能
+
+*/
+
+
+/* 
 
  loader 下载 --> 使用(配置loader)
  plugins 下载 --> 引入 --> 使用
 
+*/
+
+/* 
+hot module replacement
+HMR: 热模块替换 / 模块热替换
+  作用: 一个模块发生变化 只会重新打包这一模块 不是打包所有模块 可以极大的提升构建速度
+  样式文件 可以使用hmr功能 style-loader内部实现了
+  js文件 默认没有hmr功能 需要修改js的代码 添加支持hmr的代码
+  注意 HMR功能对js的处理 只能处理js非入口文件
+  html文件 默认不能使用hmr文件 同时会导致html文件不能热更新了 不用做hmr功能 
+  解决: 修改entry入口 将html文件引入
 */
 
 // resolve 用来拼接绝对路径的方法
@@ -24,7 +47,7 @@ process.env.NODE_ENV = "development";
 module.exports = {
   // webpack配置
   // 入口起点
-  entry: "./src/js/index.js",
+  entry: ['./src/js/index.js','./src/index.html'],
   // 输出
   output: {
     // 输出文件名
@@ -138,6 +161,8 @@ module.exports = {
         loader: "eslint-loader",
         //  检查时排查第三方的库
         exclude: /node_modules/,
+        // 优先执行
+        enforce: 'pre',
         options: {
           //  自动修复
           fix: true,
@@ -216,5 +241,7 @@ module.exports = {
     port: 3000,
     // 自动打开浏览器
     open: true,
+    // 开启hmr功能 当修改了webpack配置 要重启服务
+    hot: true
   },
 };
