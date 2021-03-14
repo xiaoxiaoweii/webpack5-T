@@ -242,6 +242,7 @@ module.exports = {
     // 自动打开浏览器
     open: true,
     // 开启hmr功能 当修改了webpack配置 要重启服务
-    hot: true
+    hot: true,
+    inline: true
   },
 };
